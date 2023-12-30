@@ -19,71 +19,28 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import MapComponent from "./Mapcomponent";
 import axios from "axios";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  // const [Name, setName] = useState("");
-  // console.log(Name);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
     message: ""
   });
-  console.log(setFormData);
-
-  // const [text, setText] = useState("");
-  // const words = ["eat.", "sleep.", "code.", "repeat."];
-  // let direction = 0; // 0 for forwards, 1 for backwards
-  // let wordIndex = 0;
-  // let letterIndex = 0;
-  // let wordTypeInterval;
-
-  // useEffect(() => {
-  //   startTyping();
-  //   return () => clearInterval(wordTypeInterval);
-  // }, []);
-
-  //   function startTyping() {
-  //     wordTypeInterval = setInterval(typeLetter, 75);
-  //   }
-
-  //   function typeLetter() {
-  //     const word = words[wordIndex];
-
-  //     if (direction === 0) {
-  //       letterIndex++;
-
-  //       if (letterIndex === word.length) {
-  //         direction = 1;
-  //         clearInterval(wordTypeInterval);
-  //         setTimeout(startTyping, 2000);
-  //       }
-  //     } else if (direction === 1) {
-  //       letterIndex--;
-
-  //       if (letterIndex === 0) {
-  //         nextWord();
-  //       }
-  //     }
-
-  //     const textToType = word.substring(0, letterIndex);
-  //     setfunction nextWord() {
-  //     letterIndex = 0;
-  //     direction = 0;
-  //     wordIndex++;
-
-  //     if (wordIndex === words.length) {
-  //       wordIndex = 0;
-  //     }
-  //   }
-  // Text(textToType);
-  //   }
+  useEffect(() => {
+    AOS.init({
+      duration: 1200
+    });
+  }, []);
 
   const handleChange = (e) => {
     e.preventDefault();
     console.log(e);
-    // return;
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -107,13 +64,26 @@ function App() {
       );
 
       const data = response.data;
-      console.log(data);
-      alert("Email sent successfully");
-      // Handle success or error, update UI as needed
+
+      toast.success("Email sent successfully", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark"
+      });
     } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to send email. Please try again.");
-      // Handle error
+      toast.error("Failed to send email. Please try again.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark"
+      });
     }
   };
 
@@ -121,7 +91,7 @@ function App() {
     <div className="App ">
       <Container fluid>
         {/* Name Content */}
-        <Row>
+        <Row data-aos="fade-up">
           <Col xs={12} md={6}>
             <div className="mt-5">
               <h1 className="color-white">
@@ -178,7 +148,7 @@ function App() {
           </Col>
         </Row>
         {/* Side Scroll */}
-        <Row>
+        <Row data-aos="fade-up">
           <span className=" d-flex justify-content-between align-items-center">
             <p className="fontwhite moving-text vertical-text mt-5">
               <span className="d-flex justify-content-center align-items-center scroll">
@@ -195,7 +165,7 @@ function App() {
           </span>
         </Row>
         {/* Projects */}
-        <Row>
+        <Row data-aos="fade-up">
           <Col xs={12} md={6}>
             <div className="fontwhite px-3">
               <h1 className="headings">Projects</h1>
@@ -221,7 +191,7 @@ function App() {
           </Col>
         </Row>
         {/* Card_Caontainer */}
-        <Row>
+        <Row data-aos="fade-up">
           <Col xs={12} md={4} className=" pt-3 d-flex justify-content-center ">
             <a
               href="https://github.com/saran-softdev/Coffee-Shop.git"
@@ -314,7 +284,7 @@ function App() {
           </Col>
         </Row>
         {/* About me */}
-        <Row className=" mt-3">
+        <Row className=" mt-3" data-aos="fade-up">
           <Col xs={12} md={6} className=" my-5">
             <h1 className="headings">About me</h1>
             <p className="skills about_content pt-3">
@@ -425,7 +395,7 @@ function App() {
           </Col>
         </Row>
         {/* Contact  */}
-        <Row>
+        <Row data-aos="fade-up">
           <Col xs={12} md={6}>
             <span className="contact_body d-flex flex-column">
               <h1 className="headings" id="contact-id">
@@ -479,9 +449,25 @@ function App() {
                         required
                       ></textarea>
                     </div>
-                    <button onClick={handleSubmit} type="submit">
+                    <button
+                      onClick={handleSubmit}
+                      type="submit"
+                      className=" bg-info text-white rounded-1 mt-3"
+                    >
                       Send
                     </button>
+                    <ToastContainer
+                      position="top-right"
+                      autoClose={5000}
+                      hideProgressBar={false}
+                      newestOnTop={false}
+                      closeOnClick
+                      rtl={false}
+                      pauseOnFocusLoss
+                      draggable
+                      pauseOnHover
+                      theme="dark"
+                    />
                   </form>
                 </div>
               </span>

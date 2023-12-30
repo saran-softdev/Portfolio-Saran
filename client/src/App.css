@@ -547,3 +547,8 @@ input:-webkit-autofill {
     font-size: 14px; /* Adjust the font size of the button for smaller screens */
   }
 }
+
+.send_btn {
+  border: aqua !important;
+  color: #222222 !important;
+}
