@@ -93,6 +93,20 @@
   -webkit-background-clip: text;
   color: transparent;
 }
+.centered_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.dream_quote {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
 .dreams {
   color: lightgoldenrodyellow;
 }
@@ -548,7 +562,8 @@ input:-webkit-autofill {
   }
 }
 
-.send_btn {
-  border: aqua !important;
+.button {
+  background-color: aqua !important;
   color: #222222 !important;
+  font-weight: bolder;
 }

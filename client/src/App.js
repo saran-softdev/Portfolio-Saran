@@ -39,52 +39,75 @@ function App() {
   }, []);
 
   const handleChange = (e) => {
-    e.preventDefault();
-    console.log(e);
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
+    setFormData({
+      ...formData,
       [name]: value
-    }));
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      try {
+        const response = axios.post(
+          "https://portfolio-saran.koyeb.app/send-email",
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json"
+            }
+          }
+        );
+
+        toast.success("Email sent successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark"
+        });
+      } catch (error) {
+        toast.error("Failed to send email. Please try again.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark"
+        });
+      }
+
+      console.log("Form submitted:", formData);
+    }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("test");
+  const validateForm = () => {
+    const { name, email, subject, message } = formData;
 
-    try {
-      const response = await axios.post(
-        "https://portfolio-saran.koyeb.app/send-email",
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json"
-          }
-        }
-      );
-
-      const data = response.data;
-
-      toast.success("Email sent successfully", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "dark"
-      });
-    } catch (error) {
-      toast.error("Failed to send email. Please try again.", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "dark"
-      });
+    if (!name.trim()) {
+      toast.error("Name is required");
+      return false;
     }
+
+    if (!email.trim()) {
+      toast.error("Email is required");
+      return false;
+    }
+
+    if (!subject.trim()) {
+      toast.error("Subject is required");
+      return false;
+    }
+
+    if (!message.trim()) {
+      toast.error("Message is required");
+      return false;
+    }
+
+    return true;
   };
 
   return (
@@ -93,7 +116,7 @@ function App() {
         {/* Name Content */}
         <Row data-aos="fade-up">
           <Col xs={12} md={6}>
-            <div className="mt-5">
+            <div className="mt-5 mb-3">
               <h1 className="color-white">
                 <span className="hover-effect">H</span>
                 <span className="hover-effect">i</span>
@@ -110,7 +133,7 @@ function App() {
                 <span className="hover-effect">n</span>
                 <span className="hover-effect">,</span>
               </h1>
-              <h1 className="color-white">
+              {/* <h1 className="color-white">
                 <span className="hover-effect">w</span>
                 <span className="hover-effect">e</span>
                 <span className="hover-effect">b</span>
@@ -123,7 +146,7 @@ function App() {
                 <span className="hover-effect">p</span>
                 <span className="hover-effect">e</span>
                 <span className="hover-effect">r</span>
-              </h1>
+              </h1> */}
               <h2 className=" color_gray color_gray1 mt-5">
                 <strong>Full Stack Web Developer</strong>
               </h2>
@@ -137,14 +160,34 @@ function App() {
               </div>
             </div>
           </Col>
-          <Col xs={12} md={6}>
-            <span className=" d-flex justify-content-center align-items-center h-100">
-              <p className="dreams">Dreams</p>
-              <p className="setSize">.setSize</p>
-              <p className="bracket">(</p>
-              <p className="BIG">BIG</p>
-              <p className="bracket">)</p>
-            </span>
+          <Col xs={12} md={6} className=" mt-sm-5">
+            <div className="centered_container">
+              <div className="dream_quote">
+                <span className="d-flex">
+                  <p className="dreams">if</p>
+                  <p className="bracket">(</p>
+                  <p className="setSize">goal.</p>
+                  <p className="dreams">isDifficult</p>
+                  <p className="bracket">()</p>
+                  <p className="bracket">)</p>
+                  <p className="bracket">{"{"}</p>
+                </span>
+                <span className="d-flex">
+                  <p className="setSize">console.log</p>
+                  <p className="bracket">(</p>
+                  <p className="dreams">"It's Okay, don't give up!"</p>
+                  <p className="bracket">)</p>
+                  <p className="bracket">;</p>
+                </span>
+                <span className="d-flex">
+                  <p className="dreams">goal.</p>
+                  <p className="setSize">nextStep</p>
+                  <p className="bracket">()</p>
+                  <p className="bracket">;</p>
+                </span>
+                <p className="bracket">{"}"}</p>
+              </div>
+            </div>
           </Col>
         </Row>
         {/* Side Scroll */}
@@ -452,7 +495,7 @@ function App() {
                     <button
                       onClick={handleSubmit}
                       type="submit"
-                      className=" bg-info text-white rounded-1 mt-3"
+                      className=" button  rounded-1 mt-3 "
                     >
                       Send
                     </button>
