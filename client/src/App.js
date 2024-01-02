@@ -499,18 +499,6 @@ function App() {
                     >
                       Send
                     </button>
-                    <ToastContainer
-                      position="top-right"
-                      autoClose={5000}
-                      hideProgressBar={false}
-                      newestOnTop={false}
-                      closeOnClick
-                      rtl={false}
-                      pauseOnFocusLoss
-                      draggable
-                      pauseOnHover
-                      theme="dark"
-                    />
                   </form>
                 </div>
               </span>
@@ -535,6 +523,18 @@ function App() {
           </Col>
         </Row>
       </Container>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
