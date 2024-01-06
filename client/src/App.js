@@ -32,6 +32,8 @@ function App() {
     subject: "",
     message: ""
   });
+  console.log(formData);
+
   useEffect(() => {
     AOS.init({
       duration: 1200
@@ -48,39 +50,44 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      try {
-        const response = axios.post(
-          "https://portfolio-saran.koyeb.app/send-email",
-          formData,
-          {
-            headers: {
-              "Content-Type": "application/json"
-            }
-          }
-        );
-
-        toast.success("Email sent successfully", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "dark"
+      axios
+        .post("https://portfolio-saran.koyeb.app/send-email", formData)
+        .then((response) => {
+          setFormData({
+            name: "",
+            email: "",
+            subject: "",
+            message: ""
+          });
+          console.log(">>>", formData);
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("subject").value = "";
+          document.getElementById("message").value = "";
+          // window.location.reload();
+        })
+        .then(() => {
+          toast.success("Email sent successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark"
+          });
+        })
+        .catch((error) => {
+          toast.error("Failed to send email. Please try again.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark"
+          });
         });
-      } catch (error) {
-        toast.error("Failed to send email. Please try again.", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "dark"
-        });
-      }
-
-      console.log("Form submitted:", formData);
     }
   };
 
@@ -446,12 +453,13 @@ function App() {
               </h1>
               <span>
                 <div className="login-box mt-3">
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <div className="user-box">
                       <input
                         type="text"
                         name="name"
                         id="name"
+                        autoComplete="off"
                         onChange={handleChange}
                         className="bg-transparent"
                         required
@@ -462,6 +470,7 @@ function App() {
                       <input
                         type="text"
                         name="email"
+                        autoComplete="off"
                         onChange={handleChange}
                         id="email"
                         className="bg-transparent"
@@ -473,6 +482,7 @@ function App() {
                       <input
                         type="text"
                         name="subject"
+                        autoComplete="off"
                         onChange={handleChange}
                         id="subject"
                         className="bg-transparent"
@@ -487,16 +497,13 @@ function App() {
                         className="bg-transparent text-white"
                         placeholder="Message"
                         name="message"
+                        autoComplete="off"
                         id="message"
                         onChange={handleChange}
                         required
                       ></textarea>
                     </div>
-                    <button
-                      onClick={handleSubmit}
-                      type="submit"
-                      className=" button  rounded-1 mt-3 "
-                    >
+                    <button type="submit" className=" button  rounded-1 mt-3 ">
                       Send
                     </button>
                   </form>
