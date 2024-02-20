@@ -17,6 +17,7 @@ import {
   faReact,
   faNode
 } from "@fortawesome/free-brands-svg-icons";
+import { SiBootstrap } from "react-icons/si";
 import MapComponent from "./Mapcomponent";
 import axios from "axios";
 import AOS from "aos";
@@ -392,9 +393,12 @@ function App() {
                     <div className="box">
                       <div className="content">
                         <h2>
-                          <strong>JAVASCRIPT</strong>
+                          <strong>JAVASCRIPT | BOOTSTRAP</strong>
                         </h2>
-                        <FontAwesomeIcon icon={faJs} className=" fs-1 m-2" />
+                        <span className=" d-flex justify-content-center align-items-center ms-5">
+                          <FontAwesomeIcon icon={faJs} className=" fs-1 m-2" />
+                          <SiBootstrap className=" fs-1 m-2" />
+                        </span>
                       </div>
                     </div>
                   </div>
