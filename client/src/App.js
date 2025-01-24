@@ -6,8 +6,11 @@ import { ImLinkedin } from "react-icons/im";
 import { AiOutlineGithub } from "react-icons/ai";
 import { GrLocation } from "react-icons/gr";
 import { SiGmail } from "react-icons/si";
+import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+
 import { DiMongodb } from "react-icons/di";
 import { SiRedux } from "react-icons/si";
+import { AiFillGithub } from "react-icons/ai";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -237,7 +240,8 @@ function App() {
               </h2>
               <div className=" mt-5">
                 <a
-                  href="../SARAN KUMAR.pdf"
+                  href="../Sarankumar.pdf"
+                  target="_blank"
                   className="btn41-43 btn-41 text-decoration-none rounded"
                 >
                   Resume
@@ -312,7 +316,162 @@ function App() {
         </Row>
         {/* Card_Caontainer */}
         <Row data-aos="fade-up">
-          <Col xs={12} md={4} className=" pt-3 d-flex justify-content-center ">
+          <Col xs={12} md={3} className=" pt-3 d-flex justify-content-center ">
+            <a
+              href="https://www.abilitycoding.com/"
+              className=" text-decoration-none"
+            >
+              {" "}
+              <Card
+                style={{ width: "18rem" }}
+                className=" card-container hover-effect2"
+              >
+                <div className=" d-flex justify-content-end p-2 fs-4">
+                  <BiLinkExternal className=" text-white" />
+                </div>{" "}
+                <Card.Body>
+                  <Card.Title className="card-title">Ability Coding</Card.Title>
+                  <Card.Text className="fontwhite">
+                    Ability Coding is a free e-learning platform designed for
+                    aspiring developers. Learn through interactive lessons,
+                    practical examples, and hands-on projects to build
+                    industry-relevant skills.
+                  </Card.Text>
+                </Card.Body>
+                <div className="skills d-flex justify-content-evenly pb-2">
+                  <small className="0">Next.js</small>
+                  <small className="0">Redux</small>
+                  <small className="1">Cloud</small>
+                  <small className="3">Admin Dashboard</small>
+                </div>
+              </Card>
+            </a>
+          </Col>
+          <Col xs={12} md={3} className="pt-3 d-flex justify-content-center">
+            <a
+              href="https://dev01.halasaudi.com/"
+              className="text-decoration-none"
+            >
+              <Card
+                style={{ width: "18rem" }}
+                className="card-container hover-effect2"
+              >
+                <div className="d-flex justify-content-end p-2 fs-4">
+                  <BiLinkExternal className="text-white" />
+                </div>
+                <Card.Body>
+                  <Card.Title className="card-title">Hala Saudi</Card.Title>
+                  <Card.Text className="fontwhite">
+                    A premier travel and event platform exclusively focused on
+                    Saudi Arabia. Explore and book hotels, flights, tours, and
+                    events tailored to the beauty and culture of Saudi Arabia.
+                    with mobile compatibility,
+                  </Card.Text>
+                </Card.Body>
+                <div className="skills d-flex justify-content-evenly pb-2">
+                  <small className="0">Next.js</small>
+                  <small className="0">GCP</small>
+                  <small className="0">Flight, Hotel, Event API </small>
+                  <small className="3">Razorpay</small>
+                </div>
+              </Card>
+            </a>
+          </Col>
+
+          <Col xs={12} md={3} className="pt-3 d-flex justify-content-center">
+            <a
+              href="https://www.cellhealthgroup.com/"
+              className="text-decoration-none"
+            >
+              <Card
+                style={{ width: "18rem" }}
+                className="card-container hover-effect2"
+              >
+                <div className="d-flex justify-content-end p-2 fs-4">
+                  <BiLinkExternal className="text-white" />
+                </div>
+                <Card.Body>
+                  <Card.Title className="card-title">Cell Health</Card.Title>
+                  <Card.Text className="fontwhite">
+                    A leading healthcare product sales platform based in Dubai.
+                    Offers a wide range of health and wellness products,
+                    featuring a responsive , seamless shopping experience, and
+                    robust backend integration.
+                  </Card.Text>
+                </Card.Body>
+                <div className="skills d-flex justify-content-evenly pb-2">
+                  <small className="0">Next.js</small>
+                  <small className="0">Redux</small>
+                  <small className="1">Tailwindcss</small>
+                  <small className="3">Google Cloud</small>
+                </div>
+              </Card>
+            </a>
+          </Col>
+
+          <Col xs={12} md={3} className=" pt-3 d-flex justify-content-center ">
+            <a
+              href="https://www.bodyfly.online/"
+              className=" text-decoration-none"
+            >
+              {" "}
+              <Card
+                style={{ width: "18rem" }}
+                className=" card-container hover-effect2"
+              >
+                <div className=" d-flex justify-content-end p-2 fs-4">
+                  <BiLinkExternal className=" text-white" />
+                </div>{" "}
+                <Card.Body>
+                  <Card.Title className="card-title">Body Fly</Card.Title>
+                  <Card.Text className="fontwhite">
+                    Experience the thrill of indoor skydiving with Body Fly,
+                    Dubai's premier body-flying class. Learn techniques from
+                    certified professionals in a state-of-the-art wind tunnel.
+                  </Card.Text>
+                </Card.Body>
+                <div className="skills d-flex justify-content-evenly pb-2">
+                  <small className="0">React.js</small>
+                  <small className="0">Redux</small>
+                  <small className="1">Tailwindcss</small>
+                  <small className="3">Admin Dashboard</small>
+                </div>
+              </Card>
+            </a>
+          </Col>
+          <Col xs={12} md={3} className="pt-3 d-flex justify-content-center">
+            <a
+              href="https://www.rms-project.com/"
+              className="text-decoration-none"
+            >
+              <Card
+                style={{ width: "18rem" }}
+                className="card-container hover-effect2"
+              >
+                <div className="d-flex justify-content-end p-2 fs-4">
+                  <BiLinkExternal className="text-white" />
+                </div>
+                <Card.Body>
+                  <Card.Title className="card-title">
+                    Rotation Management System
+                  </Card.Title>
+                  <Card.Text className="fontwhite">
+                    A platform to capture and manage body-flying videos,
+                    offering users high-quality video playback, easy downloads,
+                    and secure storage.
+                  </Card.Text>
+                </Card.Body>
+                <div className="skills d-flex justify-content-evenly pb-2">
+                  <small className="0">React.js</small>
+                  <small className="0">GCP</small>
+                  <small className="1">User Profiles</small>
+                  <small className="3">Secure Storage</small>
+                </div>
+              </Card>
+            </a>
+          </Col>
+
+          <Col xs={12} md={3} className=" pt-3 d-flex justify-content-center ">
             <a
               href="https://cloths-saran.koyeb.app/"
               className=" text-decoration-none"
@@ -343,7 +502,7 @@ function App() {
               </Card>
             </a>
           </Col>
-          <Col xs={12} md={4} className=" pt-3 d-flex justify-content-center ">
+          <Col xs={12} md={3} className=" pt-3 d-flex justify-content-center ">
             <a
               href="https://github.com/saran-softdev/Coffee-Shop.git"
               className=" text-decoration-none"
@@ -372,7 +531,7 @@ function App() {
               </Card>
             </a>
           </Col>
-          <Col xs={12} md={4} className=" pt-3 d-flex justify-content-center ">
+          <Col xs={12} md={3} className=" pt-3 d-flex justify-content-center ">
             <a
               href="https://github.com/saran-softdev/MEAT-EAT.git"
               className=" text-decoration-none"
@@ -451,10 +610,12 @@ function App() {
                     <div className="box">
                       <div className="content">
                         <h2>
-                          <strong>HTML | CSS</strong>
+                          <strong>REACT.JS | NEXT.JS</strong>
                         </h2>
-                        <FontAwesomeIcon icon={faHtml5} className=" fs-1 m-2" />
-                        <FontAwesomeIcon icon={faCss3} className=" fs-1 m-2" />
+                        <div className=" d-flex justify-content-center align-items-start gap-3">
+                          <FontAwesomeIcon icon={faReact} className=" fs-1 " />
+                          <SiNextdotjs icon={faCss3} className=" fs-1 " />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -462,11 +623,11 @@ function App() {
                     <div className="box">
                       <div className="content">
                         <h2>
-                          <strong>JAVASCRIPT | BOOTSTRAP</strong>
+                          <strong>JAVASCRIPT | TAILWINDCSS</strong>
                         </h2>
                         <span className=" d-flex justify-content-center align-items-center ms-5">
                           <FontAwesomeIcon icon={faJs} className=" fs-1 m-2" />
-                          <SiBootstrap className=" fs-1 m-2" />
+                          <SiTailwindcss className=" fs-1 m-2" />
                         </span>
                       </div>
                     </div>
@@ -482,15 +643,13 @@ function App() {
                     <div className="box">
                       <div className="content">
                         <span className=" d-flex justify-content-center ">
-                          <FontAwesomeIcon
-                            icon={faReact}
-                            className=" fs-1 m-2"
-                          />
                           <SiRedux className=" fs-1 m-2" />
+
+                          <AiFillGithub icon={faReact} className=" fs-1 m-2" />
                         </span>
 
                         <h2 className=" pb-3">
-                          <strong>REACT | REDUX</strong>
+                          <strong>REDUX | GITHUB </strong>
                         </h2>
                       </div>
                     </div>
